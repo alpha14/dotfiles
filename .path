@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+#export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin:~/.local/bin/
+
+# ~ is not expanded in zsh PATH
+
+# User configuration
+export PATH="${HOME}/bin:${HOME}/scripts:${HOME}/.local/bin:${HOME}/homebrew/bin:$PATH"
+
