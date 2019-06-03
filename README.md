@@ -2,6 +2,7 @@
 
 Compatible with GNU/linux and macos, it tweaks bash and zsh and adds aliases.
 I try to keep aliases shell/OS agnostic.
+Tweaks configuration of Emacs and Vim.
 
 ## Installation
 
@@ -62,7 +63,7 @@ email = john.doe@work.example.com
 ```
 
 ### SSH keys
-If you have the keychain utility, you can set the SSH_KEYS variable containing a list of keys you want to autoload. Otherwise, every ssh key in ~/.ssh will loaded in the ssh-agent
+If you have the keychain utility, you can set the SSH_KEYS variable containing a list of keys you want to autoload. Otherwise, every ssh key in ~/.ssh will be loaded in the ssh-agent
 
 ### Todo
 Automate requirements installation

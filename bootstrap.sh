@@ -16,12 +16,22 @@ function doIt() {
 
     if [[ ! -d "${HOME}/.oh-my-zsh/" ]]; then
         echo "installing oh-my-zsh"
-        git clone https://github.com/robbyrussell/oh-my-zsh.git ${HOME}/.oh-my-zsh
+        git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git ${HOME}/.oh-my-zsh
     else
         cd "${HOME}/.oh-my-zsh" && git pull --rebase
     fi
     # ZSH plugin
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-${HOME}/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+    if [[ ! -d "${HOME}/.vim_runtime/" ]]; then
+        echo "installing vimrc"
+        git clone --depth=1 https://github.com/amix/vimrc.git ${HOME}/.vim_runtime
+        sh ${HOME}/.vim_runtime/install_awesome_vimrc.sh""
+    else
+        cd "${HOME}/.vim_runtime" && git pull --rebase
+    fi
+
+
     # install fonts
     if [[ ! -d "${TMPDIR}/fonts/" ]]; then
         git clone https://github.com/powerline/fonts ${TMPDIR}/fonts && ${TMPDIR}/fonts/install.sh && rm -rf ${TMPDIR}/fonts
