@@ -1,6 +1,3 @@
-[includeIf "gitdir:~/work/"] # job needs, like works/* so all included projects
-    path = .gitconfig-work
-
 [alias]
         # Switch to a branch, creating it if necessary
         go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
@@ -25,7 +22,7 @@
 	    whitespace = fix
 
 [core]
-        editor = emacs
+	editor = vim
         excludesfile = ~/.gitignore_global
 
         # Treat spaces before tabs and all kinds of trailing whitespace as an error
@@ -107,3 +104,16 @@
 
 [url "git://gist.github.com/"]
         insteadOf = "gist:"
+[user]
+	email = contact@alpha14.com
+	name = alpha14
+#	signingkey = 1696B776DAF36D1AF68B501C50476E4ECA8BE6D8
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[includeIf "gitdir:~/work/"] # job needs, like works/* so all included projects
+    path = .gitconfig-work
+

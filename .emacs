@@ -5,6 +5,8 @@
 (setq-default indent-tabs-mode nil)
 (setq show-trailing-whitespace t)
 (setq-default show-trailing-whitespace t)
+(setq x-select-enable-clipboard t)
+(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
 
 (require 'package) ;; You might already have this line
 (add-to-list 'package-archives
@@ -66,3 +68,4 @@
 ;; Cua-mode allows using 'Ctrl-v', 'Ctrl-c', 'Ctrl-Z' and 'Ctrl-x'
 (cua-mode t)
 
+(put 'scroll-left 'disabled nil)

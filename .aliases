@@ -29,7 +29,7 @@ alias la="ls -lhaF ${colorflag} ${gnuflag}"
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 alias sl="ls"
 
-alias grep="grep --color=auto -d skip"
+alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 

@@ -7,7 +7,7 @@ git pull origin master;
 
 function doIt() {
 
-    TMPDIR="{${TMPDIR:-$(dirname $(mktemp))/}"
+    TMPDIR="${TMPDIR:-$(dirname $(mktemp))}"
 
     rsync --exclude ".git/" \
           --exclude "bootstrap.sh" \

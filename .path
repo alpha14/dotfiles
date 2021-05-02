@@ -7,3 +7,4 @@
 # User configuration
 export PATH="${HOME}/bin:${HOME}/scripts:${HOME}/.local/bin:${HOME}/homebrew/bin:$PATH"
 
+export PATH="/home/akalatzi/.gem/ruby/2.5.0/bin:$PATH"
