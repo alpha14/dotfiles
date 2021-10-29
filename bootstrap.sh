@@ -11,6 +11,7 @@ function doIt() {
 
     rsync --exclude ".git/" \
           --exclude "bootstrap.sh" \
+          --exclude "requirements.sh" \
           --exclude "README.md" \
           -avh --no-perms . ~;
 
