@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
-
 cd "$(dirname "${BASH_SOURCE}")";
 
 git pull origin master;
 
 function doIt() {
 
-    TMPDIR="{${TMPDIR:-$(dirname $(mktemp))/}"
+    TMPDIR="${TMPDIR:-$(dirname $(mktemp))}"
 
     rsync --exclude ".git/" \
           --exclude "bootstrap.sh" \
@@ -22,7 +21,10 @@ function doIt() {
         cd "${HOME}/.oh-my-zsh" && git pull --rebase
     fi
     # ZSH plugin
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-${HOME}/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    _ZSH_SYNTAX=${ZSH_CUSTOM:-${HOME}/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    if [[ ! -d "${_ZSH_SYNTAX}" ]]; then
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${_ZSH_SYNTAX}
+    fi
 
     if [[ ! -d "${HOME}/.vim_runtime/" ]]; then
         echo "installing vimrc"
@@ -39,8 +41,8 @@ function doIt() {
     fi
 
     # install fonts
-    if [[ ! -d "${TMPDIR}/fonts/" ]]; then
-        git clone https://github.com/powerline/fonts ${TMPDIR}/fonts && ${TMPDIR}/fonts/install.sh && rm -rf ${TMPDIR}/fonts
+    if [[ ! -d "${TMPDIR}/fonts" ]]; then
+        git clone https://github.com/powerline/fonts ${TMPDIR}/fonts && ${TMPDIR}/fonts/install.sh
     fi
 }
 
