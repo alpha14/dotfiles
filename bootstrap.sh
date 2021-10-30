@@ -32,6 +32,11 @@ function doIt() {
         cd "${HOME}/.vim_runtime" && git pull --rebase
     fi
 
+    if [[ ! -d "${HOME}/.nvm/" ]]; then
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+        source ~/.exports
+        nvm install --lts
+    fi
 
     # install fonts
     if [[ ! -d "${TMPDIR}/fonts/" ]]; then
