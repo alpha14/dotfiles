@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export EDITOR='emacs';
+export EDITOR='emacs --no-window-system';
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
