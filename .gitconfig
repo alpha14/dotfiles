@@ -25,7 +25,7 @@
 	    whitespace = fix
 
 [core]
-        editor = emacs
+	editor = emacs -nw
         excludesfile = ~/.gitignore_global
 
         # Treat spaces before tabs and all kinds of trailing whitespace as an error
