@@ -1,8 +1,20 @@
 #!/usr/bin/env bash
 
+if ! which git &>/dev/null; then
+    echo "git package is required for this script"
+    exit 1
+fi
+
+if ! which curl &>/dev/null; then
+    echo "curl package is required for this script"
+    exit 1
+fi
+
 cd "$(dirname "${BASH_SOURCE}")";
 
-git pull origin master;
+if ! git pull origin master; then
+    exit 2
+fi
 
 function doIt() {
 
