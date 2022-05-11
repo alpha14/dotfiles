@@ -47,14 +47,11 @@ if [[ "${_IS_LAPTOP}" = true && true = false ]]; then
     echo "options bbswitch load_state=0" | tee /etc/modprobe.d/bbswitch.conf
 fi
 
-# Protonvpn
-wget -q -O - https://repo.protonvpn.com/debian/public_key.asc | apt-key add -
-add-apt-repository 'deb https://repo.protonvpn.com/debian unstable main'
-
 echo "Installing packages"
 
 # Ubuntu & laptop specific
 if [[ ("${_IS_LAPTOP}" = true && "${_DISTRO}" == "ubuntu") ]]; then
+    echo "laptop & distro"
     add-apt-repository ppa:slimbook/slimbook -y
     apt update && sudo apt install slimbookbattery -y
 else
@@ -64,7 +61,7 @@ fi
 apt install terminator zsh keychain htop emacs golang whois dnsutils youtube-dl snapd traceroute build-essential imagemagick -y
 
 if [[ "${_IS_WINDOWS}" = false ]]; then
-    apt install steam protonvpn nextcloud-desktop firefox keepassxc -y
+    apt install steam nextcloud-desktop firefox keepassxc -y
     snap install signal-desktop spotify
 fi
 
