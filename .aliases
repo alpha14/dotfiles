@@ -69,7 +69,7 @@ alias clone="git clone'"
 alias glog="command git log --graph --abbrev-commit --pretty=format:'%C(yellow)%h%Creset-%C(yellow)%d%Creset%s%Cgreen(%cr)%C(blue)<%an>%Creset'"
 
 #Network stuff
-alias speedtest="wget -O /dev/null http://proof.ovh.net/files/1Gio.dat"
+alias speedtest="wget -O /dev/null http://proof.ovh.net/files/1Gb.dat"
 alias myip="wget -qO- https://ident.me"
 
 # Misc
