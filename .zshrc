@@ -4,6 +4,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 # Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="agnoster"
 
+setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
 
 autoload zmv
