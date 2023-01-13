@@ -11,6 +11,9 @@ if [ $? -eq 0 ]; then
 	}
 fi;
 
+function ammendpush() {
+git add "$@" && git commit --amend --no-edit && git push -f
+}
 #function diff() {
 #if [ -x "$(command -v colordiff)" ]; then
 #   command diff -uw "$@" | colordiff
