@@ -27,7 +27,7 @@ source "${ZSH}/oh-my-zsh.sh"
 
 # Aliases
 # * ~/.personal and ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,personal,exports,aliases,functions,extra}; do
+for file in ~/.{path,personal,aliases,functions,extra,exports}; do
     [ -f "$file" ] && [ -r "$file" ] && source "$file";
 done;
 unset file;
