@@ -66,6 +66,9 @@
         default = simple
         # Make `git push` push relevant annotated tags when pushing branches out.
         followTags = true
+        # all branches are expected to have the same name on the remote
+        autoSetupRemote = true
+
 
 [merge]
         # Include summaries of merged commits in newly created merge commit messages
