@@ -36,17 +36,6 @@ if [[ "${_DISTRO}" == "ubuntu" ]]; then
     apt-add-repository multiverse
 fi
 
-# /!\ Need testing, disabled for now
-# Laptop with nvidia card (Optimus)
-# You need to see both Intel and NVIDIA with lspci -vnn | egrep 'VGA|3D'
-if [[ "${_IS_LAPTOP}" = true && true = false ]]; then
-    # https://doc.ubuntu-fr.org/bumblebee#installation
-    apt install bbswitch-dkms -y
-    modprobe bbswitch
-    echo "bbswitch" > /etc/modules
-    echo "options bbswitch load_state=0" | tee /etc/modprobe.d/bbswitch.conf
-fi
-
 echo "Installing packages"
 
 # Ubuntu & laptop specific
@@ -58,11 +47,11 @@ else
     apt update
 fi
 
-apt install terminator zsh keychain htop emacs golang whois dnsutils youtube-dl snapd traceroute build-essential imagemagick -y
+apt install terminator zsh keychain htop emacs golang whois dnsutils snapd traceroute build-essential imagemagick bpython git curl -y
 
 if [[ "${_IS_WINDOWS}" = false ]]; then
-    apt install steam nextcloud-desktop firefox keepassxc -y
-    snap install signal-desktop spotify
+    apt install nextcloud-desktop keepassxc -y
+    snap install firefox signal-desktop spotify
 fi
 
 update-initramfs -u -v
