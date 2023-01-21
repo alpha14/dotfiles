@@ -35,14 +35,13 @@ My `~/.personal` looks something like this:
 ```bash
 # Git credentials
 # Not in the repository, to prevent people from accidentally committing under my name
-GIT_AUTHOR_NAME="John Doe"
-GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
-git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="john.doe@example.com"
-GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
-git config --global user.email "$GIT_AUTHOR_EMAIL"
+export GIT_AUTHOR_NAME="John Doe"
+export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+export GIT_AUTHOR_EMAIL="john.doe@example.com"
+export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 
-export SSH_KEYS=('mykey 1' 'mykey 2')
+# Optional, specify which ssh keys to import (instead of loading all of them)
+# export SSH_KEYS=('mykey 1' 'mykey 2')
 ```
 
 You could also use `~/.personal` or `~/.extra` to override settings, functions and aliases from the dotfiles repository.
@@ -55,7 +54,7 @@ Please read carefully the .exports file, you can modifiy the EDITOR (emacs by de
 
 ### Extra git config
 
-For every repos located in ~/work, I have an additionnal git config located in ~/.gitconfig-work that looks like this:
+For every repos located in ~/dev/work, I have an additionnal git config located in ~/.gitconfig-work that looks like this:
 ```
 [user]
 name = John Doe

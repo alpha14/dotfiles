@@ -1,6 +1,3 @@
-[includeIf "gitdir:~/work/"] # job needs, like works/* so all included projects
-    path = .gitconfig-work
-
 [alias]
         # Switch to a branch, creating it if necessary
         go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
@@ -66,9 +63,7 @@
         default = simple
         # Make `git push` push relevant annotated tags when pushing branches out.
         followTags = true
-        # all branches are expected to have the same name on the remote
-        autoSetupRemote = true
-
+	autoSetupRemote = true
 
 [merge]
         # Include summaries of merged commits in newly created merge commit messages
@@ -110,3 +105,6 @@
 
 [url "git://gist.github.com/"]
         insteadOf = "gist:"
+
+[includeIf "gitdir:~/dev/work/"] # job needs, like works/* so all included projects
+    path = .gitconfig-work
