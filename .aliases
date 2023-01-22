@@ -51,7 +51,8 @@ alias ...="cd ..."
 alias path="echo -e ${PATH//:/\\n}"
 
 # URL-encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+alias urlencode="python3 -c 'import sys; from urllib.parse import quote; sys.stdout.write(quote(sys.argv[1])) if len(sys.argv) > 1 else sys.stdout.write(quote(sys.stdin.read()))'"
+alias urldecode="python3 -c 'import sys; from urllib.parse import unquote; sys.stdout.write(unquote(sys.argv[1])) if len(sys.argv) > 1 else sys.stdout.write(unquote(sys.stdin.read()))'"
 
 # Conf files
 alias zshrc="${EDITOR} ~/.zshrc && source ~/.zshrc"
@@ -61,11 +62,10 @@ alias aliases="${EDITOR} ~/.aliases && source ~/.aliases"
 # Git
 alias pull="git pull"
 alias push="git push"
-alias pulsh="git pull && git push"
 alias commit="git commit -m"
 alias add="git add"
 alias status="git status"
-alias clone="git clone'"
+alias clone="git clone"
 alias glog="command git log --graph --abbrev-commit --pretty=format:'%C(yellow)%h%Creset-%C(yellow)%d%Creset%s%Cgreen(%cr)%C(blue)<%an>%Creset'"
 
 #Network stuff
