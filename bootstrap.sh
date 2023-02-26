@@ -52,6 +52,10 @@ function doIt() {
         nvm install --lts
     fi
 
+    if [[ ! -d "${HOME}/.pyenv/" ]]; then
+        curl -o- https://pyenv.run | bash
+    fi
+
     # install fonts
     if [[ ! -d "${TMPDIR}/fonts" ]]; then
         git clone https://github.com/powerline/fonts ${TMPDIR}/fonts && ${TMPDIR}/fonts/install.sh

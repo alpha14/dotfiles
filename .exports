@@ -30,6 +30,14 @@ export GPG_TTY=$(tty);
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
+# Pyenv support
+export PYENV_ROOT="$HOME/.pyenv"
+
+if [ ! -x "$(command -v pyenv >/dev/null)" ]; then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
+
 # Keyring Stuff
 if [ -x "$(command -v keychain)" ]; then
     if [[ -z "${SSH_KEYS}" ]]; then
