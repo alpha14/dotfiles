@@ -42,16 +42,35 @@ echo "Installing packages"
 if [[ ("${_IS_LAPTOP}" = true && "${_DISTRO}" == "ubuntu") ]]; then
     echo "laptop & distro"
     add-apt-repository ppa:slimbook/slimbook -y
-    apt update && sudo apt install slimbookbattery -y
+    apt update && apt install slimbookbattery -y
 else
     apt update
 fi
 
-apt install terminator zsh keychain htop emacs golang whois dnsutils snapd traceroute build-essential imagemagick bpython git curl -y
+apt install snapd terminator zsh keychain htop emacs golang whois dnsutils snapd traceroute build-essential imagemagick bpython git curl -y
 
 if [[ "${_IS_WINDOWS}" = false ]]; then
-    apt install nextcloud-desktop keepassxc -y
-    snap install firefox signal-desktop spotify
+    apt install nextcloud-desktop keepassxc python3-pip iftop iotop powertop -y
+    snap install firefox signal-desktop spotify onlyoffice-desktopeditors mattermost-desktop
+    snap install go --classic
+
+    # Pyenv deps
+    apt install build-essential libssl-dev zlib1g-dev \
+         libbz2-dev libreadline-dev libsqlite3-dev curl \
+         libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev \
+         libffi-dev liblzma-dev libpq-dev ffmpeg -y
+
+    pip install --user poetry yt-dlp
+
+    if [[ ("${_DISTRO}" == "ubuntu") ]]; then
+        apt install ubuntu-restricted-extras -y
+    fi
+
+    # Gnome settings
+    settings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+
+    # No snap auto-updates, we want to control when updates are installed
+    snap refresh --hold=forever
 fi
 
 update-initramfs -u -v
@@ -60,5 +79,7 @@ update-initramfs -u -v
 fwupdmgr refresh
 fwupdmgr update
 
-# Set term to use ZFS by default
-#chsh -s /bin/zsh
+echo "Set term to use ZFS by default, run in your terminal:"
+echo "chsh -s /bin/zsh"
+echo
+echo "end of install script"
