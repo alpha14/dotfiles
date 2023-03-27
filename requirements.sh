@@ -69,7 +69,9 @@ if [[ "${_IS_WINDOWS}" = false ]]; then
     fi
 
     # Gnome settings
-    settings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+    gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+    gsettings set org.gnome.desktop.interface show-battery-percentage true
+    gsettings set org.gnome.desktop.interface enable-animations false
 
     # No snap auto-updates, we want to control when updates are installed
     snap refresh --hold=forever
