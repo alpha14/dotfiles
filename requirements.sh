@@ -54,7 +54,7 @@ else
     apt update
 fi
 
-apt install python3-pip snapd terminator zsh keychain htop emacs whois dnsutils snapd traceroute build-essential imagemagick bpython git curl acpi-call-dkms tree xclip -y
+apt install python3-pip snapd tlp terminator zsh keychain htop emacs whois dnsutils snapd traceroute build-essential imagemagick bpython git curl acpi-call-dkms tree moreutils xclip -y
 
 # Pyenv deps
 apt install build-essential libssl-dev zlib1g-dev \
