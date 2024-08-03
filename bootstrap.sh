@@ -56,6 +56,11 @@ function doIt() {
         curl -o- https://pyenv.run | bash
     fi
 
+    # Linux brew, needs sudo
+    if [[ ! -d "/home/linuxbrew/.linuxbrew/" ]]; then
+        curl -o- https://raw.githubusercontent.com/Homebrew/install/HEAD/install | bash
+    fi
+
     # install fonts
     if [[ ! -d "${TMPDIR}/fonts" ]]; then
         git clone https://github.com/powerline/fonts ${TMPDIR}/fonts && ${TMPDIR}/fonts/install.sh
