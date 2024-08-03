@@ -55,9 +55,9 @@ alias urlencode="python3 -c 'import sys; from urllib.parse import quote; sys.std
 alias urldecode="python3 -c 'import sys; from urllib.parse import unquote; sys.stdout.write(unquote(sys.argv[1])) if len(sys.argv) > 1 else sys.stdout.write(unquote(sys.stdin.read()))'"
 
 # Conf files
-alias zshrc="${EDITOR} ~/.zshrc && source ~/.zshrc"
-alias bashrc="${EDITOR} ~/.bashrc && source ~/.bashrc"
-alias aliases="${EDITOR} ~/.aliases && source ~/.aliases"
+alias zshrc="$EDITOR ~/.zshrc && source ~/.zshrc"
+alias bashrc="$EDITOR ~/.bashrc && source ~/.bashrc"
+alias aliases="$EDITOR ~/.aliases && source ~/.aliases"
 
 # Git
 alias pull="git pull"
