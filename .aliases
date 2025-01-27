@@ -71,6 +71,7 @@ alias glog="command git log --graph --abbrev-commit --pretty=format:'%C(yellow)%
 #Network stuff
 alias speedtest="wget -O /dev/null http://proof.ovh.net/files/1Gb.dat"
 alias myip="wget -qO- https://ident.me"
+alias clear-dns-cache="sudo resolvectl flush-caches"
 
 # Misc
 alias webcrawl="wget --limit-rate=200k --no-clobber --convert-links --random-wait -r -p -E -e robots=off -U mozilla"
