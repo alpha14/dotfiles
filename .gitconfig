@@ -22,9 +22,9 @@
 	    whitespace = fix
 
 [core]
-	editor = emacs -nw
+        editor = emacs -nw
         excludesfile = ~/.gitignore_global
-
+        fsmonitor = true
         # Treat spaces before tabs and all kinds of trailing whitespace as an error
         # [default] trailing-space: looks for spaces at the end of a line
         # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
@@ -42,36 +42,51 @@
         # https://git-scm.com/docs/git-update-index#_untracked_cache
         untrackedCache = true
 
+[column]
+        ui = auto
+
 [rerere]
 	    enabled = true
+        autoupdate = true
 
 [branch]
         autosetuprebase = always
+        sort = -committerdate
 
 [rebase]
         autosquash = true
-
+        autoStash = true
+        updateRefs = true
 [pull]
         rebase = true
 
 [commit]
-        # https://help.github.com/articles/signing-commits-using-gpg/
+        # https://help.github.com/articles/signing-commits-using-gpg
         #gpgsign = true
+        verbose = true
 
 [push]
         # https://git-scm.com/docs/git-config#git-config-pushdefault
         default = simple
         # Make `git push` push relevant annotated tags when pushing branches out.
         followTags = true
-	autoSetupRemote = true
+        autoSetupRemote = true
+
+[fetch]
+        prune = true
+        pruneTags = true
+        all = true
 
 [merge]
         # Include summaries of merged commits in newly created merge commit messages
         log = true
-
+        # (just 'diff3' if git version < 2.3)
+        conflictstyle = zdiff3 
 [diff]
-        # Detect copies as well as renames
-        renames = copies
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
 
 [diff "bin"]
         # Use `hexdump` to diff binary files
@@ -87,6 +102,12 @@
         diff = auto
         status = auto
         interactive = auto
+
+[init]
+        defaultBranch = main
+
+[tag]
+        sort = version:refname
 
 # URL shorthands
 
@@ -106,5 +127,8 @@
 [url "git://gist.github.com/"]
         insteadOf = "gist:"
 
+[includeIf "gitdir:~/dev/"] # job needs, like works/* so all included projects
+    path = ~/.gitconfig-perso
+
 [includeIf "gitdir:~/dev/work/"] # job needs, like works/* so all included projects
-    path = .gitconfig-work
+    path = ~/.gitconfig-work
