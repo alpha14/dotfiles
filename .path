@@ -5,5 +5,5 @@
 # ~ is not expanded in zsh PATH
 
 # User configuration
-export PATH="${HOME}/scripts:${HOME}/.bin:${HOME}/.local/bin:${HOME}/homebrew/bin:$PATH"
+export PATH="${HOME}/scripts:${HOME}/.bin:${HOME}/.local/bin:${HOME}/linuxbrew/.linuxbrew/bin:$PATH"
 

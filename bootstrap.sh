@@ -58,7 +58,7 @@ function doIt() {
 
     # Linux brew, needs sudo
     if [[ ! -d "/home/linuxbrew/.linuxbrew/" ]]; then
-        curl -o- https://raw.githubusercontent.com/Homebrew/install/HEAD/install | bash
+        curl -o- https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
     fi
 
     # install fonts
